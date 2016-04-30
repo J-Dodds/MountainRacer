@@ -65,11 +65,70 @@ public class CarMovement : MonoBehaviour {
         }
 
         //Wheel rotation
-		frontLeftWheelMesh.Rotate(frontLeft.rpm / 60 * 360 * Time.deltaTime, 0, 0);
-		backLeftWheelMesh.Rotate(backLeft.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+        frontLeftWheelMesh.Rotate(frontLeft.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+        backLeftWheelMesh.Rotate(backLeft.rpm / 60 * 360 * Time.deltaTime, 0, 0);
+
+        //Sounds
+        if (SoundManager.Instance.SFX.isPlaying == false)
+        {
+            if (acceleration.value == 1)
+            {
+                SoundManager.Instance.SFX.pitch = 0.7f;
+                SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
+            }
+            else if (acceleration.value == 2)
+            {
+                SoundManager.Instance.SFX.pitch = 0.8f;
+                SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
+            }
+            else if (acceleration.value == 3)
+            {
+                SoundManager.Instance.SFX.pitch = 0.9f;
+                SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
+            }
+            else if (acceleration.value == 4)
+            {
+                SoundManager.Instance.SFX.pitch = 1.0f;
+                SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
+            }
+            else if (acceleration.value == 5)
+            {
+                SoundManager.Instance.SFX.pitch = 1.1f;
+                SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
+            }
+            else if (acceleration.value == 6)
+            {
+                SoundManager.Instance.SFX.pitch = 1.2f;
+                SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
+            }
+            else if (acceleration.value == 7)
+            {
+                SoundManager.Instance.SFX.pitch = 1.3f;
+                SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
+            }
+            else if (acceleration.value == 8)
+            {
+                SoundManager.Instance.SFX.pitch = 1.4f;
+                SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
+            }
+            else if (acceleration.value == 9)
+            {
+                SoundManager.Instance.SFX.pitch = 1.5f;
+                SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
+            }
+            else if (acceleration.value == 10)
+            {
+                SoundManager.Instance.SFX.pitch = 1.6f;
+                SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
+            }
+            // else
+            // {
+            //  Debug.Log("Sound Error or 0");
+            // }
+        }
     }
 
-    void FixedUpdate ()
+        void FixedUpdate ()
     {
         Movement();
 
