@@ -38,6 +38,10 @@ public class CarMovement : MonoBehaviour {
     private WheelHit wheelL;
     private WheelHit wheelR;
 
+    //Particle System
+    public ParticleSystem backLeftParticles;
+    public ParticleSystem backRightParticles;
+
     // Use this for initialization
     void Start ()
     {
@@ -121,10 +125,6 @@ public class CarMovement : MonoBehaviour {
                 SoundManager.Instance.SFX.pitch = 1.6f;
                 SoundManager.Instance.SFX.PlayOneShot(SoundManager.Instance.car);
             }
-            // else
-            // {
-            //  Debug.Log("Sound Error or 0");
-            // }
         }
     }
 
@@ -159,6 +159,10 @@ public class CarMovement : MonoBehaviour {
                 backRightWheelFriction.stiffness = grassStiffness;
                 frontLeftWheelFriction.stiffness = grassStiffness;
                 frontRightWheelFriction.stiffness = grassStiffness;
+
+                //Green
+                backLeftParticles.startColor = Color.green;
+                backRightParticles.startColor = Color.green;
             }
 
 			//Dirt terrain
@@ -168,6 +172,10 @@ public class CarMovement : MonoBehaviour {
                 backRightWheelFriction.stiffness = dirtStiffness;
                 frontLeftWheelFriction.stiffness = dirtStiffness;
                 frontRightWheelFriction.stiffness = dirtStiffness;
+
+                //Brown
+                backLeftParticles.startColor = new Color(135, 70, 70, 1.0f);
+                backRightParticles.startColor = new Color(135, 70, 70, 1.0f);
             }
 
 			//Gravel terrain
@@ -177,6 +185,10 @@ public class CarMovement : MonoBehaviour {
                 backRightWheelFriction.stiffness = gravelStiffness;
                 frontLeftWheelFriction.stiffness = gravelStiffness;
                 frontRightWheelFriction.stiffness = gravelStiffness;
+
+                //Grey
+                backLeftParticles.startColor = Color.grey;
+                backRightParticles.startColor = Color.grey;
             }
 
             //Asphalt terrain
@@ -186,6 +198,10 @@ public class CarMovement : MonoBehaviour {
                 backRightWheelFriction.stiffness = asphaltStiffness;
                 frontLeftWheelFriction.stiffness = asphaltStiffness;
                 frontRightWheelFriction.stiffness = asphaltStiffness;
+
+                //Black
+                backLeftParticles.startColor = Color.black;
+                backRightParticles.startColor = Color.black;
             }
 
             frontRight.forwardFriction = backRightWheelFriction;
