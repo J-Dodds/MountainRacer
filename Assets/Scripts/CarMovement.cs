@@ -25,10 +25,10 @@ public class CarMovement : MonoBehaviour {
     private WheelFrictionCurve frontRightWheelFriction;
 
     //Terrain stiffness
-    public float grassStiffness = 0.2f;
-    public float dirtStiffness = 0.3f;
-    public float gravelStiffness = 0.4f;
-    public float asphaltStiffness = 0.5f;
+   // public float grassStiffness = 0.2f;
+   // public float dirtStiffness = 0.3f;
+   // public float gravelStiffness = 0.4f;
+   // public float asphaltStiffness = 0.5f;
 
     //Wheel game objects
     public Transform frontLeftWheelMesh;
@@ -155,10 +155,10 @@ public class CarMovement : MonoBehaviour {
 			//Grass terrain
 			if (wheelL.collider.gameObject.tag == "Grass" && acceleration.value >= 2) 
 			{
-                backLeftWheelFriction.stiffness = grassStiffness;
-                backRightWheelFriction.stiffness = grassStiffness;
-                frontLeftWheelFriction.stiffness = grassStiffness;
-                frontRightWheelFriction.stiffness = grassStiffness;
+                backLeftWheelFriction.stiffness = -(acceleration.value - 2) / (acceleration.maxvalue - acceleration.minValue) + 1; ;
+                backRightWheelFriction.stiffness = -(acceleration.value - 2) / (acceleration.maxvalue - acceleration.minValue) + 1; ;
+                frontLeftWheelFriction.stiffness = -(acceleration.value - 2) / (acceleration.maxvalue - acceleration.minValue) + 1; ;
+                frontRightWheelFriction.stiffness = -(acceleration.value - 2) / (acceleration.maxvalue - acceleration.minValue) + 1;
 
                 //Green
                 backLeftParticles.startColor = Color.green;
@@ -168,10 +168,10 @@ public class CarMovement : MonoBehaviour {
 			//Dirt terrain
 			if (wheelL.collider.gameObject.tag == "Dirt" && acceleration.value >= 4) 
 			{
-                backLeftWheelFriction.stiffness = dirtStiffness;
-                backRightWheelFriction.stiffness = dirtStiffness;
-                frontLeftWheelFriction.stiffness = dirtStiffness;
-                frontRightWheelFriction.stiffness = dirtStiffness;
+                backLeftWheelFriction.stiffness = -(acceleration.value - 4) / (acceleration.maxvalue - acceleration.minValue) + 1;
+                backRightWheelFriction.stiffness = -(acceleration.value - 4) / (acceleration.maxvalue - acceleration.minValue) + 1;
+                frontLeftWheelFriction.stiffness = -(acceleration.value - 4) / (acceleration.maxvalue - acceleration.minValue) + 1;
+                frontRightWheelFriction.stiffness = -(acceleration.value - 4) / (acceleration.maxvalue - acceleration.minValue) + 1;
 
                 //Brown
                 backLeftParticles.startColor = new Color(135, 70, 70, 1.0f);
@@ -181,10 +181,10 @@ public class CarMovement : MonoBehaviour {
 			//Gravel terrain
 			if (wheelL.collider.gameObject.tag == "Gravel" && acceleration.value >= 6) 
 			{
-                backLeftWheelFriction.stiffness = gravelStiffness;
-                backRightWheelFriction.stiffness = gravelStiffness;
-                frontLeftWheelFriction.stiffness = gravelStiffness;
-                frontRightWheelFriction.stiffness = gravelStiffness;
+                backLeftWheelFriction.stiffness = -(acceleration.value - 6) / (acceleration.maxvalue - acceleration.minValue) + 1;
+                backRightWheelFriction.stiffness = -(acceleration.value - 6) / (acceleration.maxvalue - acceleration.minValue) + 1;
+                frontLeftWheelFriction.stiffness =  -(acceleration.value - 6) / (acceleration.maxvalue - acceleration.minValue) + 1;
+                frontRightWheelFriction.stiffness = -(acceleration.value - 6) / (acceleration.maxvalue - acceleration.minValue) + 1;
 
                 //Grey
                 backLeftParticles.startColor = Color.grey;
@@ -194,10 +194,10 @@ public class CarMovement : MonoBehaviour {
             //Asphalt terrain
             if (wheelL.collider.gameObject.tag == "Asphalt" && acceleration.value >= 8)
             {
-                backLeftWheelFriction.stiffness = asphaltStiffness;
-                backRightWheelFriction.stiffness = asphaltStiffness;
-                frontLeftWheelFriction.stiffness = asphaltStiffness;
-                frontRightWheelFriction.stiffness = asphaltStiffness;
+                backLeftWheelFriction.stiffness = -(acceleration.value - 8) / (acceleration.maxvalue - acceleration.minValue) + 1;
+                backRightWheelFriction.stiffness = -(acceleration.value - 8) / (acceleration.maxvalue - acceleration.minValue) + 1;
+                frontLeftWheelFriction.stiffness = -(acceleration.value - 8) / (acceleration.maxvalue - acceleration.minValue) + 1;
+                frontRightWheelFriction.stiffness = -(acceleration.value - 8) / (acceleration.maxvalue - acceleration.minValue) + 1;
 
                 //Black
                 backLeftParticles.startColor = Color.black;
